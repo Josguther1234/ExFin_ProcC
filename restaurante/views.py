@@ -5,9 +5,12 @@ from django.utils import timezone
 from .models import Menu, Plato
 from django.contrib import messages
 
+def index(request):
+    return render(request,'menu_list.html')
+
 def menu_list(request):
     menus = Menu.objects.all()
-    return render(request, 'restaurante/menu_list.html', {'menus': menus})
+    return render(request, 'menu_list.html', {'menus': menus})
 
 def menu_nuevo(request):
     if request.method == "POST":

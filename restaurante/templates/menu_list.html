@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="card">
+               <div class="card-header card-header-primary">
+                 <h4 class="card-title ">Asignacion de Menus y Platos</h4>
+                 <p class="card-category">Listado de Cartas existentes</p>
+                 <li style="list-style-type:none; float:right;">
+                   <a href="/nuevoE/">
+                     <i class="material-icons"
+                     style="color: white;">
+                       add_circle_outline</i>
+                   </a>
+                 </li>
+               </div>
+               <div class="card-body" style="text-align: center;">
+                 <div class="table-responsive">
+                   <table class="table">
+                     <thead class=" text-primary">
+                       <th>ID</th>
+                       <th>Menu</th>
+                       <th>Plato</th>
+                       <th>Operaciones</th>
+                     </thead>
+                     <tbody>
+                       {% for c in carta %}
+                       <tr>
+                         <td>
+                           {{ c.id }}
+                         </td>
+                         <td>
+                           {{ c.menu }}
+                         </td>
+                         <td>
+                           {{ c.plato }}
+                         </td>
+                         <td>
+                           <li style="list-style-type:none">
+                             <a href="#">
+                               <i class="material-icons">create</i>
+                             </a>
+                             <a href="{% url 'EliminarEmpleado' pk=emp.id %}">
+                             <i class="material-icons">delete_outline</i>
+                              </a>
+                           </li>
+                         </td>
+                       </tr>
+                       {% endfor %}
+                     </tbody>
+                   </table>
+                 </div>
+               </div>
+             </div>
+           </div>
+       </div>
+   </div>
+</div>
+{% endblock %}
