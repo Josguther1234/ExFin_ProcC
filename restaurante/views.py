@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-#from .forms import MenuForm
+from .forms import CartaForm
 from .models import Menu, Plato, Carta
 from django.contrib import messages
 
@@ -16,16 +16,19 @@ def menu_plato(request):
 def menu_solo(request):
     menus = Menu.objects.all()
     return render(request, 'menu_solo.html', {'menus': menus})
+def crearcarta(request):
+    menus = Carta.objects.all()
+    return render(request, 'crearcarta.html', {'menus': menus})
 
-def menu_nuevo(request):
+def crearcarta2(request):
     if request.method == "POST":
-        formulario = MenuForm(request.POST)
+        formulario = CartaForm(request.POST)
         if formulario.is_valid():
-            menu = menu.objects.create(nombre=formulario.cleaned_data['nombre'])
+            menu = menu.objects.create(nombre=formulario.cleaned_data['menu'])
             for plato_id in request.POST.getlist('plato'):
                 carta = Carta(plato_id=plato_id, menu_id = menu_id)
                 carta.save()
             return redirect('menu_list')
     else:
-        formulario = MenuForm()
-    return render(request, 'restaurante/agregar.html', {'formulario': formulario})
+        formulario = CartaForm()
+    return render(request, 'crearcarta.html', {'formulario': formulario})

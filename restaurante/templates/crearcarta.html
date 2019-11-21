@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Nueva Carta</h4>
+                  <p class="card-category">Complete los datos que se solicitan</p>
+                </div>
+                <div class="card-body">
+                  <form method="POST">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Menu</label>
+                          <select class="form-control" name="nombre">
+                            <option value="volvo">Familiar</option>
+                            <option value="saab">Individual</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Plato</label>
+                          <select class="form-control" name="nombre">
+                            <option value="volvo">Carne Asada</option>
+                            <option value="saab">Pollo Crispi</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Guardar</button>
+                    <div class="clearfix"></div>
+                  </form>
+
+{% endblock %}
