@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import Menu, Plato, Carta
+admin.site.register(Menu)
+admin.site.register(Plato)
+admin.site.register(Carta)
