@@ -19,8 +19,16 @@ class Plato(models.Model):
     def __str__(self):
         return self.nombre
 
+class Carta(models.Model):
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    plato = models.ForeignKey(Plato, on_delete=models.CASCADE)
+
 class PlatoAdmin(admin.ModelAdmin):
     inlines = (CartaInLine,)
 
 class MenuAdmin(admin.ModelAdmin):
     inlines = (CartaInLine,)
+
+class CartaInLine(admin.TabularInline):
+    model = Carta
+    extra = 1
