@@ -2,15 +2,20 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 #from .forms import MenuForm
-from .models import Menu, Plato
+from .models import Menu, Plato, Carta
 from django.contrib import messages
 
-def index(request):
-    return render(request,'menu_list.html')
-
 def menu_list(request):
-    menus = Menu.objects.all()
+    menus = Carta.objects.all()
     return render(request, 'menu_list.html', {'menus': menus})
+
+def menu_plato(request):
+    menus = Plato.objects.all()
+    return render(request, 'menu_plato.html', {'menus': menus})
+
+def menu_solo(request):
+    menus = Menu.objects.all()
+    return render(request, 'menu_solo.html', {'menus': menus})
 
 def menu_nuevo(request):
     if request.method == "POST":

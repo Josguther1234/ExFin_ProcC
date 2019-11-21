@@ -7,8 +7,8 @@
            <div class="col-md-12">
              <div class="card">
                <div class="card-header card-header-primary">
-                 <h4 class="card-title ">Asignacion de Menus y Platos</h4>
-                 <p class="card-category">Listado de Cartas existentes</p>
+                 <h4 class="card-title ">Asignacion de Menus</h4>
+                 <p class="card-category">Listado de Menus existentes</p>
                  <li style="list-style-type:none; float:right;">
                    <a href="/nuevoE/">
                      <i class="material-icons"
@@ -22,8 +22,7 @@
                    <table class="table">
                      <thead class=" text-primary">
                        <th>ID</th>
-                       <th>Menu</th>
-                       <th>Plato</th>
+                       <th>Nombre del Menu</th>
                        <th>Operaciones</th>
                      </thead>
                      <tbody>
@@ -33,10 +32,7 @@
                            {{ menu.id }}
                          </td>
                          <td>
-                           {{ menu.menu }}
-                         </td>
-                         <td>
-                           {{ menu.plato }}
+                           {{ menu.nombre }}
                          </td>
                          <td>
                            <li style="list-style-type:none">
